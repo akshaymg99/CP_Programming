@@ -12,7 +12,7 @@ void swap(int* a, int* b) {
 int partition_QS(int arr[], int low, int high) {
     int pivot = arr[high];
     int i = low -1;
-    for (int j=0; j<high; j++) {
+    for (int j=low; j<high; j++) {
         if(arr[j] < pivot) {
             i++;
             swap(&arr[i], &arr[j]);
@@ -38,13 +38,14 @@ int main() {
 
     int arr[n];
     for (int i=0; i<n; ++i) {
-        cout << "Enter element"<< i+1 << ":";
+        cout << "Enter element "<< i+1 << ":";
         cin >> arr[i];
     }
     QuickSort(arr, 0, n-1);
-    cout << "Sorted array";
+    cout << "Sorted array\n";
     for (int i=0; i<n; ++i) {
-        cout << arr[i];
+        cout << arr[i] << "\t";
     }
+
     return 0;
 }
