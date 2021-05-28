@@ -17,6 +17,9 @@ class MyLinkedList {
         }
 
         SinglyList* getnode(int index) {
+            if (index < 0)
+                return NULL;
+
             SinglyList* cur = head;
             for (int i=0; i<index && cur; ++i) {       
                 cur = cur -> next;
