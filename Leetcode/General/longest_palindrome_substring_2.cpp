@@ -18,20 +18,15 @@ public:
             }
         }
         
-        for(int k=3; k<=n; ++k) {
-            for(int i=0; i< n-k+1; ++i) {
-                
-                int j = i+k-1;
-                if(s[i] == s[j] && table[i+1][j-1]) {
+        for (int j=2; j<n; ++j) {
+            for (int i=0; i<j-1; ++i) {
+                if (s[i] == s[j] && table[i+1][j-1]) {
                     table[i][j] = true;
-                    
-                    if(k > max_length) {
-                        max_length = k;
+                    if (j-i+1 > max_length){
+                        max_length = j-i+1;
                         start = i;
                     }
                 }
-                
-                    
             }
         }
         
