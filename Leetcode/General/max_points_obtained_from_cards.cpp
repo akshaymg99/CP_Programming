@@ -3,6 +3,8 @@ Problem link: https://leetcode.com/problems/maximum-points-you-can-obtain-from-c
 Maximum points drawn from cards 
 */
 
+// slidiing window solution
+
 class Solution {
 private:
     int sumit(vector<int>& cardPoints, int i, int k) {
@@ -31,5 +33,26 @@ public:
         
         return sum;
         
+    }
+};
+
+// Approach 2 (take k nos from right & replace one by one from left)
+
+class Solution {
+public:
+    int maxScore(vector<int>& cardPoints, int k) {
+        int n = cardPoints.size();
+        int res = 0;
+        for (int i=n-k; i<n; ++i)
+            res += cardPoints[i];
+        
+        int sum = res;
+        for (int i=0; i<k; ++i) {
+            sum -= cardPoints[n-k+i];
+            sum += cardPoints[i];
+            
+            res = max(sum, res);
+        }
+        return res;
     }
 };
