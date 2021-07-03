@@ -1,2 +1,3 @@
-Collection of solved coding problems
+#### Collection of solved coding problems <br>
+<br>
 -------- Updating daily ------------
