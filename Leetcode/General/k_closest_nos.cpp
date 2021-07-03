@@ -3,6 +3,31 @@ Problem link: https://leetcode.com/problems/find-k-closest-elements/
 Finding k closest numbers to a given number
 */
 
+// Approach 1 - Sliding window and two pointers
+
+class Solution {
+public:
+    vector<int> findClosestElements(vector<int>& arr, int k, int x) {
+        int n = arr.size();
+        vector<int>::iterator right = lower_bound(arr.begin(), arr.end(), x);
+        vector<int>::iterator left = right - 1;
+        int R = right - arr.begin();
+        int L = left - arr.begin();
+        
+        
+        while(k--) {
+            if (R >= n || L >=0 && abs(x-arr[L]) <= abs(arr[R] - x))
+                L--;
+            else
+                R++;
+        }
+        
+        return vector<int> (arr.begin()+L+1, arr.begin()+R);
+    }
+};
+
+// Approach 2
+
 class Solution {
 private:
     long long int binary_search(vector<int>&arr, long long int l, long long int r, long long int ele) {
