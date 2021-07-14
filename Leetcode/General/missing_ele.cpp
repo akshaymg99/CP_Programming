@@ -3,6 +3,8 @@ Problem link: https://leetcode.com/problems/missing-number/
 Find missing number in consecutive array
 */
 
+// Using summation formula
+
 class Solution {
 public:
     int missingNumber(vector<int>& nums) {
@@ -14,3 +16,13 @@ public:
         return max_ele*(max_ele+1)/2 - sum;
     }
 };
+
+// Using Bit manipulation (XOR)
+
+class Solution:
+    def missingNumber(self, nums):
+        missing = len(nums)
+        for i, num in enumerate(nums):
+            missing ^= i ^ num
+        return missing
+
