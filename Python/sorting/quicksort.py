@@ -19,7 +19,8 @@ def quickSort(arr, low, high):
 		quickSort(arr, pivot_index+1, high)
 
 
-arr = list(map(int, input().split(',')))
+arr = list(map(int, input().split(' ')))
+arr_1 = [4, 2, 6, 8, 34, 1, 4]
 n = len(arr)
 quickSort(arr, 0, n-1)
 
